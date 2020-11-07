@@ -4,7 +4,8 @@ import { DEFAULT_AXIOS_CONFIG } from "./index";
 import { ApiClient } from "../types/ApiClient";
 import { AlbumDetails } from "src/types/AlbumDetails";
 
-const ROOT_BACKEND_API_PATH = "http://127.0.0.1:8000/api";
+const ROOT_BACKEND_API_PATH = process.env.REACT_APP_OSTSTREAM_API_URL + "/api";
+
 export const PATHS = Object.freeze({
   GET_ALBUM: "albums",
   GET_ALBUM_CLOSEUP: "album-close-up"
