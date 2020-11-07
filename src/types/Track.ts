@@ -5,4 +5,5 @@ export interface Track {
     readonly albumId: number;
     readonly uri: string;
     readonly length: number;
+    readonly file_path: string;
 }

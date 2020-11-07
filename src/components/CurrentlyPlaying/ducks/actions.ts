@@ -3,6 +3,8 @@ import { Track } from 'src/types/Track';
 
 export const ADD_SONGS_TO_QUEUE = 'app/currentlyPlaying/addSongsToQueue';
 export const SET_CURRENTLY_PLAYING = 'app/currentlyPlaying/setCurrentlyPlaying';
+export const PLAY_NEXT_SONG = 'app/currentlyPlaying/playNextSong';
+
 
 interface AddSongsToQueuePayload {
     readonly songs: Track[];
@@ -26,7 +28,13 @@ const setCurrentlyPlaying = (
     payload,
 })
 
+const playNextSong = (): GenericOstStreamAction<typeof PLAY_NEXT_SONG, {}> => ({
+    type: PLAY_NEXT_SONG,
+    payload: {}
+})
+
 export type CurrentlyPlayingAction =
+    | ReturnType<typeof playNextSong>
     | ReturnType<typeof setCurrentlyPlaying>
     | ReturnType<typeof addSongsToQueue>;
 
@@ -35,4 +43,6 @@ export default {
     addSongsToQueue,
     SET_CURRENTLY_PLAYING,
     setCurrentlyPlaying,
+    PLAY_NEXT_SONG,
+    playNextSong,
 }

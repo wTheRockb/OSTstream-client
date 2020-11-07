@@ -1,6 +1,6 @@
 import { OstStreamAction } from 'src/types/Index';
 import { Track } from 'src/types/Track';
-import { ADD_SONGS_TO_QUEUE, SET_CURRENTLY_PLAYING } from './actions';
+import { ADD_SONGS_TO_QUEUE, PLAY_NEXT_SONG, SET_CURRENTLY_PLAYING } from './actions';
 
 export interface CurrentlyPlayingReducerState {
     readonly currentlyPlaying?: Track;
@@ -25,6 +25,12 @@ export const CurrentlyPlayingReducer = (
             return {
                 ...state,
                 currentlyPlaying: action.payload.song,
+            }
+        case PLAY_NEXT_SONG:
+        
+            return {
+                ...state,
+                currentlyPlaying: state.queue.pop(),
             }
 
         default:

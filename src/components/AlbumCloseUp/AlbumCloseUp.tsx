@@ -14,7 +14,7 @@ const initialAlbumData: AlbumDetails = {
   title: "Album Loading",
   gameId: 0,
   publishDate: "",
-  imageUri: "",
+  image_path: "",
   tracks: [],
 };
 
@@ -36,7 +36,7 @@ const AlbumCloseUp: React.FC<AlbumCloseUpProps> = (
       <div className="album-close-up__content">
         <div className="album-close-up__title-holder">
           <img
-            src={albumData.imageUri}
+            src={albumData.image_path}
             className="album-close-up__album-cover"
           />
           <div className="album-close-up__album-title">{albumData.title}</div>

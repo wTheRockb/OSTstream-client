@@ -5,6 +5,6 @@ export interface AlbumDetails {
     readonly title: string;
     readonly gameId: number;
     readonly publishDate?: string; // TODO change to date?
-    readonly imageUri: string;
+    readonly image_path: string;
     readonly tracks: Track[];
 }
