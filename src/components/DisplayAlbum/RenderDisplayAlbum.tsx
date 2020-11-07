@@ -7,7 +7,7 @@ const RenderDisplayAlbum: React.FunctionComponent<Album> = (props: Album) => {
   return (
     <div className="displayAlbum">
      <Link to={`/albums/${props.id}`}>
-        <img src={props.imageUri} className="displayAlbum__cover" />
+        <img src={props.image_path} className="displayAlbum__cover" />
         <div className="displayAlbum__title">
          {props.title}
         </div>
