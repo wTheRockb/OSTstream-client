@@ -4,8 +4,6 @@ import "./style.scss";
 import { Album } from 'src/types/Album';
 import BackendApiClient from 'src/api/api';
 
-const axios = require("axios").default;
-
 export const RenderAlbums: React.FunctionComponent<{}> = () => {
   const [albums, setAlbums] = useState<Album[]>([]);
   useEffect(() => {
