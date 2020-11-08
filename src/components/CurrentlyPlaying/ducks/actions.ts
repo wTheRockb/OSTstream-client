@@ -2,7 +2,7 @@ import { GenericOstStreamAction } from 'src/types/Index';
 import { Track } from 'src/types/Track';
 
 export const ADD_SONGS_TO_QUEUE = 'app/currentlyPlaying/addSongsToQueue';
-export const SET_CURRENTLY_PLAYING = 'app/currentlyPlaying/setCurrentlyPlaying';
+export const SET_PLAYING_AND_QUEUE = 'app/currentlyPlaying/setPlayingAndQueue';
 export const PLAY_NEXT_SONG = 'app/currentlyPlaying/playNextSong';
 
 
@@ -10,8 +10,8 @@ interface AddSongsToQueuePayload {
     readonly songs: Track[];
 }
 
-interface SetCurrentlyPlayingPayload {
-    readonly song: Track;
+interface SetPlayingAndQueuePayload {
+    readonly songs: Track[];
 }
 
 const addSongsToQueue = (
@@ -21,10 +21,10 @@ const addSongsToQueue = (
     payload,
 })
 
-const setCurrentlyPlaying = (
-    payload: SetCurrentlyPlayingPayload,
-): GenericOstStreamAction<typeof SET_CURRENTLY_PLAYING, SetCurrentlyPlayingPayload> => ({
-    type: SET_CURRENTLY_PLAYING,
+const setPlayingAndQueue = (
+    payload: SetPlayingAndQueuePayload,
+): GenericOstStreamAction<typeof SET_PLAYING_AND_QUEUE, SetPlayingAndQueuePayload> => ({
+    type: SET_PLAYING_AND_QUEUE,
     payload,
 })
 
@@ -35,14 +35,14 @@ const playNextSong = (): GenericOstStreamAction<typeof PLAY_NEXT_SONG, {}> => ({
 
 export type CurrentlyPlayingAction =
     | ReturnType<typeof playNextSong>
-    | ReturnType<typeof setCurrentlyPlaying>
+    | ReturnType<typeof setPlayingAndQueue>
     | ReturnType<typeof addSongsToQueue>;
 
 export default {
     ADD_SONGS_TO_QUEUE,
     addSongsToQueue,
-    SET_CURRENTLY_PLAYING,
-    setCurrentlyPlaying,
+    SET_PLAYING_AND_QUEUE,
+    setPlayingAndQueue,
     PLAY_NEXT_SONG,
     playNextSong,
 }

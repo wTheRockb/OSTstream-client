@@ -26,9 +26,7 @@ export const AlbumTrackList: React.FunctionComponent<AlbumTrackListProps> = (
   const playTrack = (track: Track) => {
     return () => {
       const toQueue = getRestOfAlbum(track);
-      // TODO refactor into 1 action. make that action also clear the queue
-      dispatch(CurrentlyPlayingActions.setCurrentlyPlaying({song: track}))
-      dispatch(CurrentlyPlayingActions.addSongsToQueue({ songs: toQueue }))
+      dispatch(CurrentlyPlayingActions.setPlayingAndQueue({ songs: [track, ...toQueue] }))
     }
   }
 
