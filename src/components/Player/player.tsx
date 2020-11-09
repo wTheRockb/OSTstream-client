@@ -7,6 +7,7 @@ import { Track } from 'src/types/Track';
 import { OstStreamState } from 'src/types/Index';
 import { CurrentlyPlayingDispatch } from '../CurrentlyPlaying/ducks/types';
 import CurrentlyPlayingActions from '../CurrentlyPlaying/ducks/actions';
+import { CurrentlyPlayingDisplay } from '../CurrentlyPlayingDisplay';
 
 
 interface SongPlayerProps {
@@ -23,18 +24,21 @@ const SongPlayer: React.FunctionComponent<SongPlayerProps> = (props) => {
     return (
         <div className="player__root">
             <div className="player__song-display">
-               song title
-               {props.currentlyPlayedSong && props.currentlyPlayedSong.title}
+                <CurrentlyPlayingDisplay
+                    trackTitle={props.currentlyPlayedSong?.title || ''}
+                    albumArtPath={props.currentlyPlayedSong?.album_art_path || ''}
+                    albumTitle={props.currentlyPlayedSong?.album_title || ''}
+                />
             </div>
             <div className="player__audio">
-            <AudioPlayer
-                autoPlay
-                src= {props.currentlyPlayedSong?.file_path}
-                onPlay={() => console.log("onPlay")}
-                onClickNext={beginPlayingNextSong}
-                onEnded={beginPlayingNextSong}
-                showSkipControls={true}
-            />
+                <AudioPlayer
+                    autoPlay
+                    src={props.currentlyPlayedSong?.file_path}
+                    onPlay={() => console.log("onPlay")}
+                    onClickNext={beginPlayingNextSong}
+                    onEnded={beginPlayingNextSong}
+                    showSkipControls={true}
+                />
             </div>
         </div>
     )
