@@ -33,6 +33,7 @@ const SongPlayer: React.FunctionComponent<SongPlayerProps> = (props) => {
                 onPlay={() => console.log("onPlay")}
                 onClickNext={beginPlayingNextSong}
                 onEnded={beginPlayingNextSong}
+                showSkipControls={true}
                 // other props here
             />
             </div>
