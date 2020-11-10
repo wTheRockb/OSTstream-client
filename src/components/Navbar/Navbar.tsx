@@ -50,7 +50,7 @@ const Navbar = () => {
                 activeClassName="navbar__active-link"
                 className="navbar__nav-link"
               >
-                search
+                Search
               </NavLink>
             </li>
           </ul>
@@ -94,19 +94,19 @@ const AlbumCloseUpContent = () => {
 };
 
 const Home = () => {
-  return <h2>Home</h2>;
+  return<h2 style={{color: "black"}}>In Construction, check out Albums.</h2>;
 };
 
 const Playlists = () => {
-  return <h2>Playlists</h2>;
+  return <h2 style={{color: "black"}}>In Construction</h2>;
 };
 
 const RecentlyPlayed = () => {
-  return <h2>Recently Played</h2>;
+  return <h2 style={{color: "black"}}>In Construction</h2>;
 };
 
 const Search = () => {
-  return <h2>Search</h2>;
+  return <h2 style={{color: "black"}}>In Construction</h2>;
 };
 
 export default Navbar;
